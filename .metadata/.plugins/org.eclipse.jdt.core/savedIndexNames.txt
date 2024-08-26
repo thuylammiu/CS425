@@ -1,0 +1,4 @@
+INDEX VERSION 1.132+C:\MyProgram\MiuOnCampus\CS425DE\Assigmment\workspace\.metadata\.plugins\org.eclipse.jdt.core
+1825748346.index
+1865797976.index
+2841182883.index
