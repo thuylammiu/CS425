@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Register New Student</title>
+    <title>Register/Edit Student</title>
 </head>
 <body>
-<h1>Register New Student</h1>
-
+<h1 th:text="${student.studentId} ? 'Edit Student' : 'Register New Student'"></h1>
+<form th:action="@{/students}" th:object="${student}" method="post">
+    <input type="hidden" th:field="*{studentId}" />
+    <div>
+        <label for="studentNumber">Student Number:</label>
+        <input type="text" id="studentNumber" th:field="*{studentNumber}" required />
+    </div>
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" th:field="*{firstName}" required />
+    </div>
+    <div>
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" th:field="*{middleName}" />
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" required />
+    </div>
+    <div>
+        <label for="cgpa">CGPA:</label>
+        <input type="number" id="cgpa" th:field="*{cgpa}" step="0.01" />
+    </div>
+    <div>
+        <label for="enrollmentDate">Enrollment Date:</label>
+        <input type="date" id="enrollmentDate" th:field="*{enrollmentDate}" required />
+    </div>
+    <div>
+        <label for="isInternational">International Student:</label>
+        <select id="isInternational" th:field="*{isInternational}" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <button type="submit">Save</button>
+</form>
 <a th:href="@{/students}">Back to Student List</a>
 </body>
 </html>
